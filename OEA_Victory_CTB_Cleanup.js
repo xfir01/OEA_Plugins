@@ -23,7 +23,6 @@ Sprite_Battler.prototype.createCTBIcon = function() {
 var oea_BattleManager_endBattle = BattleManager.endBattle;
 BattleManager.endBattle = function(result) {
     oea_BattleManager_endBattle.call(this, result);
-    console.log("EndBattle!");
     if (Yanfly.Param.CTBTurnOrder) {
         if(!$gameTemp.OEA_ctbIcons) return;
         var index;
