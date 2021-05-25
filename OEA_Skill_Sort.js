@@ -25,13 +25,24 @@ Window_SkillList.prototype.makeItemList = function () {
         var j = 0;
         for (j = i + 1; j < this._data.length; j++) {
             if (this._actor.canUse(this._data[j])) {
-                var tmp = this._data[i];
-                this._data[i] = this._data[j];
-                this._data[j] = tmp;
-                tmp = undefined;
+                floatSkill(this._data, i, j);
                 i++;
 			}
 		}
 
     }
 };
+
+function floatSkill(arr, start, end)
+{
+    var i = end - 1;
+    var j = end;
+    while(i >= start)
+    {
+        var tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+        i--;
+        j--;
+    }
+}
