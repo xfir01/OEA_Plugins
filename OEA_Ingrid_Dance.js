@@ -7,18 +7,21 @@
 * 
 * @param X Position
 * @desc X position of the image
+* Default: 285
 * @default 285
 * 
 * 
 * @param Y Position
 * @desc Y position of the image
-* @default 285
+* Default: 10
+* @default 10
 * 
 */
 
 (function () {
 
 	var params = PluginManager.parameters("ChainCommand");
+	var OEA_Ingrid_Dance_Params = PluginManager.parameters('OEA_Ingrid_Dance');  
 	var validKeys = params["Valid Keys"].split(" ");
 
 	var soundFX = {
@@ -56,8 +59,8 @@
 
 		if (!this.ingrid) {
 			this.ingrid = new Sprite(ImageManager.loadBitmap("img/ingrid_dance/", "Ingrid"));
-			this.ingrid.x = 285;
-			this.ingrid.y = 0;
+			this.ingrid.x = Number(OEA_Ingrid_Dance_Params["X Position"])
+			this.ingrid.y = Number(OEA_Ingrid_Dance_Params["Y Position"])
 
 			this.addChild(this.ingrid);
 		}
@@ -92,9 +95,6 @@
 		}
 
 		this.ingrid.bitmap = bmp;
-		this.ingrid.update();
-		
-
 		this.ingrid.update();
 	}
 
